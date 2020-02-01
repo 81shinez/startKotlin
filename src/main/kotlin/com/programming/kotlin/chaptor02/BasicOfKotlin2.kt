@@ -1,5 +1,11 @@
 package com.programming.kotlin.chaptor02
 
+import java.io.File
+import java.io.IOException
+import java.math.BigDecimal
+import java.nio.file.Files
+import java.nio.file.Path
+
 fun main(args: Array<String>){
 //    루프
     /*
@@ -33,6 +39,23 @@ fun main(args: Array<String>){
     }
 
 //    예외 처리
+    fun readFile(path: Path): Unit {
+        val input = Files.newInputStream(path)
+        try{
+            var byte = input.read()
+            while(byte != -1){
+                println(byte)
+                byte = input.read()
+            }
+        } catch (e: IOException){
+            println("Error reading from file. Error was ${e.message}")
+        } finally {
+            input.close()
+        }
+    }
 
-
+//    클래스 인스턴스화 하기
+    val file = File("/etc/nginx/nginx.conf")
+    val date = BigDecimal(100)
+    
 }
